@@ -39,6 +39,7 @@ export const colors = {
   
   // Borders
   border: '#E0E0E0',
+  borderLight: '#F0F0F0',
   borderGold: '#D4AF37',
   borderDark: '#333333',
   

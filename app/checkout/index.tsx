@@ -8,9 +8,8 @@ import {
   TextInput,
   Switch 
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import Button from '../../components/ui/button';
 import Input from '../../components/ui/input';
 import { colors } from '../../constants/colors';
@@ -20,7 +19,7 @@ export default function CheckoutScreen() {
   const [selectedPayment, setSelectedPayment] = React.useState('card');
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
@@ -172,7 +171,7 @@ export default function CheckoutScreen() {
           </Text>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -186,7 +185,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingTop: 20,
+    paddingTop: 60,
     paddingBottom: 10,
   },
   backButton: {

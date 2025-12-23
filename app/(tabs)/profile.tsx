@@ -7,9 +7,8 @@ import {
   TouchableOpacity,
   Image 
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
+import { router } from 'expo-router';
 import Button from '../../components/ui/button';
 import Input from '../../components/ui/input';
 import { colors } from '../../constants/colors';
@@ -25,7 +24,7 @@ export default function ProfileScreen() {
   });
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
@@ -134,9 +133,9 @@ export default function ProfileScreen() {
         <View style={styles.ordersSection}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>RECENT ORDERS</Text>
-            <Link href="/orders">
+            <TouchableOpacity onPress={() => router.push('/order-confirmation')}>
               <Text style={styles.seeAll}>VIEW ALL</Text>
-            </Link>
+            </TouchableOpacity>
           </View>
           
           <View style={styles.ordersList}>
@@ -173,11 +172,11 @@ export default function ProfileScreen() {
           <Button
             title="LOGOUT"
             variant="black"
-            onPress={() => {}}
+            onPress={() => router.push('/(auth)/login')}
           />
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -189,7 +188,7 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.black,
     paddingHorizontal: 24,
-    paddingTop: 40,
+    paddingTop: 60,
     paddingBottom: 30,
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,
