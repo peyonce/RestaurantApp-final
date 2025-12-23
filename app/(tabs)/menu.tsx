@@ -6,9 +6,9 @@ import {
   ScrollView, 
   TouchableOpacity, 
   FlatList,
-  SafeAreaView,
   TextInput 
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import FoodCard from '../../components/food/food-card';
@@ -27,7 +27,7 @@ export default function MenuScreen() {
   });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>

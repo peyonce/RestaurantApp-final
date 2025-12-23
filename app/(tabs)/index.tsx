@@ -1,16 +1,16 @@
-import { Ionicons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
 import React from 'react';
-import {
+import { 
+  View, 
+  Text, 
+  StyleSheet, 
+  ScrollView, 
+  TouchableOpacity, 
   FlatList,
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
+  Image 
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Link } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import FoodCard from '../../components/food/food-card';
 import Button from '../../components/ui/button';
 import { colors } from '../../constants/colors';
@@ -18,7 +18,7 @@ import { foodCategories, foodItems } from '../../constants/food-data';
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
         {/* Premium Header */}
         <View style={styles.header}>

@@ -4,11 +4,11 @@ import {
   Text, 
   StyleSheet, 
   ScrollView, 
-  TouchableOpacity, 
-  SafeAreaView,
+  TouchableOpacity,
   TextInput,
   Switch 
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import Button from '../../components/ui/button';
@@ -20,7 +20,7 @@ export default function CheckoutScreen() {
   const [selectedPayment, setSelectedPayment] = React.useState('card');
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <View style={styles.header}>
