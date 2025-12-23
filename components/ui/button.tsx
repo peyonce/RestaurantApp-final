@@ -37,21 +37,11 @@ export default function Button({
       case 'gold':
         baseStyle = { 
           backgroundColor: colors.gold,
-          shadowColor: colors.gold,
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.3,
-          shadowRadius: 8,
-          elevation: 5,
         };
         break;
       case 'black':
         baseStyle = { 
           backgroundColor: colors.black,
-          shadowColor: colors.black,
-          shadowOffset: { width: 0, height: 4 },
-          shadowOpacity: 0.3,
-          shadowRadius: 8,
-          elevation: 5,
         };
         break;
       case 'outline':
