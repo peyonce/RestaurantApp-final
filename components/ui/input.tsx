@@ -7,19 +7,51 @@ import {
   TextInputProps 
 } from 'react-native';
 import { colors } from '../../constants/colors';
+import { Controller, Control, FieldValues, Path } from 'react-hook-form';
 
-interface InputProps extends TextInputProps {
+interface InputProps<T extends FieldValues> extends TextInputProps {
   label?: string;
   error?: string;
   containerStyle?: any;
+  control?: Control<T>;
+  name: Path<T>;
 }
 
-export default function Input({
+export default function Input<T extends FieldValues>({
   label,
   error,
   containerStyle,
+  control,
+  name,
   ...props
-}: InputProps) {
+}: InputProps<T>) {
+  if (control) {
+    return (
+      <Controller
+        control={control}
+        name={name}
+        render={({ field: { onChange, onBlur, value } }) => (
+          <View style={[styles.container, containerStyle]}>
+            {label && <Text style={styles.label}>{label}</Text>}
+            <TextInput
+              style={[
+                styles.input,
+                error && styles.inputError,
+                props.editable === false && styles.inputDisabled,
+              ]}
+              placeholderTextColor={colors.grayLight}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+              {...props}
+            />
+            {error && <Text style={styles.errorText}>{error}</Text>}
+          </View>
+        )}
+      />
+    );
+  }
+
   return (
     <View style={[styles.container, containerStyle]}>
       {label && <Text style={styles.label}>{label}</Text>}
